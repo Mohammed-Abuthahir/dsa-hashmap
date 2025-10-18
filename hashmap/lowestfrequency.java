@@ -2,7 +2,7 @@
 import java.util.*;
 import java.util.Scanner;
 import java.util.Arrays;
-class highestfrequency{
+class lowestfrequency{
     public static int frequency(int[] nums){
         HashMap<Integer,Integer> map = new HashMap<>();
         for(int i = 0;i<nums.length;i++){
@@ -13,15 +13,17 @@ class highestfrequency{
                 map.put(nums[i],1);
             }
         }
-        int max = Integer.MIN_VALUE;
-        int maxElement = -1;
+        int minFreq = Integer.MAX_VALUE;
+        int minElement = -1;
 
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            if (entry.getValue() > max) {
-                maxElement = entry.getKey();
+            int freq = entry.getValue();
+            if (freq < minFreq) {
+                minFreq = freq;
+                minElement = entry.getKey();
             }
         }
-        return maxElement;
+        return minElement;
     }
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
