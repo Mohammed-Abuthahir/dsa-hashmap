@@ -13,15 +13,14 @@ class highestfrequency{
                 map.put(nums[i],1);
             }
         }
-        int max = Integer.MIN_VALUE;
-        int maxElement = -1;
-
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            if (entry.getValue() > max) {
-                maxElement = entry.getKey();
+        int max = Collections.max(map.values());
+        int maxElemetoccur = 0;
+        for(Map.Entry <Integer,Integer> entry : map.entrySet()){
+            if(entry.getValue()==max){
+                maxElemetoccur = entry.getKey();
             }
         }
-        return maxElement;
+        return maxElemetoccur;
     }
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
